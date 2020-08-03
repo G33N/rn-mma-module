@@ -1,0 +1,51 @@
+{
+    "name": "rn-mma-module",
+    "version": "1.0.0",
+    "description": "React native multi-module architecture module boilerplate",
+    "main": "module.js",
+    "repository": "https://github.com/G33N/rn-mma-module.git",
+    "author": "Matias Celiz <mceliz@enlaceit.com.ar>",
+    "license": "MIT",
+    "scripts": {
+        "test": "jest --coverage",
+        "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+        "ts-compile-check": "tsc -p tsconfig.json --noEmit"
+    },
+    "dependencies": {
+        "react": "16.13.1",
+        "react-native": "0.63.2"
+    },
+    "devDependencies": {
+        "@types/react": "^16.9.44",
+        "@types/react-native": "^0.63.4",
+        "@typescript-eslint/eslint-plugin": "^3.7.1",
+        "@typescript-eslint/parser": "^3.7.1",
+        "cross-env": "^7.0.2",
+        "eslint": "^7.6.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "eslint-plugin-react": "^7.20.5",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.2.11",
+        "prettier": "^2.0.5",
+        "typescript": "^3.9.7"
+    },
+    "jest": {
+        "testPathIgnorePatterns": [
+            "<rootDir>/e2e"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn audit && yarn run ts-compile-check && lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": [
+            "eslint --fix",
+            "prettier --fix",
+            "cross-env NODE_ENV=test jest --bail --findRelatedTests",
+            "git add"
+        ]
+    }
+}
