@@ -2,7 +2,15 @@
 
 This repository is part of "[Building a scalable APP with multi-module architecture](https://github.com/G33N/rn-mma-app)"
 
-### Tree
+## What is a module?
+* Is a mini app inside the organization project
+* Independent encapsulated product business logic
+* Only JS code
+* Modules can communicate with each other
+* Implement an interface
+
+
+## Tree
 
 ```
 ├── src                            Module code
